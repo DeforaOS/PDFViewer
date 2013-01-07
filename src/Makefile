@@ -2,17 +2,18 @@ TARGETS	= pdfviewer
 PREFIX	= /usr/local
 DESTDIR	=
 BINDIR	= $(PREFIX)/bin
-CC	?= cc
+SBINDIR	= $(PREFIX)/sbin
+CC	= cc
 CPPFLAGSF= -I $(PREFIX)/include
-CPPFLAGS?=
+CPPFLAGS=
 CFLAGSF	= -W `pkg-config --cflags libDesktop poppler-glib`
 CFLAGS	= -Wall -g -O2 -pedantic
 LDFLAGSF= `pkg-config --libs libDesktop poppler-glib` -lm
 LDFLAGS	= 
-RM	?= rm -f
-LN	?= ln -f
-MKDIR	?= mkdir -p
-INSTALL	?= install
+RM	= rm -f
+LN	= ln -f
+MKDIR	= mkdir -p
+INSTALL	= install
 
 
 all: $(TARGETS)
