@@ -1,7 +1,7 @@
 /* $Id$ */
 static char const _copyright[] =
 "Copyright (c) 2010-2011 Sébastien Bocahu <zecrazytux@zecrazytux.net>\n"
-"Copyright (c) 2011-2012 Pierre Pronchery <khorben@defora.org>";
+"Copyright (c) 2011-2013 Pierre Pronchery <khorben@defora.org>";
 static char const _license[] =
 "This program is free software; you can redistribute it and/or modify\n"
 "it under the terms of the GNU General Public License as published by the\n"
@@ -188,6 +188,7 @@ PDFviewer * pdfviewer_new(void)
 	group = gtk_accel_group_new();
 	pdfviewer->window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_window_add_accel_group(GTK_WINDOW(pdfviewer->window), group);
+	g_object_unref(group);
 	gtk_window_set_default_size(GTK_WINDOW(pdfviewer->window), 600, 400);
 	_pdfviewer_set_title(pdfviewer);
 #if GTK_CHECK_VERSION(2, 6, 0)
