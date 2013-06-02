@@ -42,7 +42,7 @@ distclean: clean
 
 install: $(TARGETS)
 	$(MKDIR) $(DESTDIR)$(BINDIR)
-	$(INSTALL) -m 0755 -- pdfviewer $(DESTDIR)$(BINDIR)/pdfviewer
+	$(INSTALL) -m 0755 pdfviewer $(DESTDIR)$(BINDIR)/pdfviewer
 
 uninstall:
 	$(RM) -- $(DESTDIR)$(BINDIR)/pdfviewer

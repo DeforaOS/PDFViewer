@@ -13,7 +13,7 @@ distclean: clean
 
 install:
 	$(MKDIR) $(DESTDIR)$(PREFIX)/share/applications
-	$(INSTALL) -m 0644 -- pdfviewer.desktop $(DESTDIR)$(PREFIX)/share/applications/pdfviewer.desktop
+	$(INSTALL) -m 0644 pdfviewer.desktop $(DESTDIR)$(PREFIX)/share/applications/pdfviewer.desktop
 
 uninstall:
 	$(RM) -- $(DESTDIR)$(PREFIX)/share/applications/pdfviewer.desktop
