@@ -307,6 +307,8 @@ void pdfviewer_about(PDFviewer * pdfviewer)
 			"document-print-preview");
 	desktop_about_dialog_set_name(pdfviewer->ab_window, PACKAGE);
 	desktop_about_dialog_set_version(pdfviewer->ab_window, VERSION);
+	desktop_about_dialog_set_website(pdfviewer->ab_window,
+			"http://www.defora.org/");
 	gtk_widget_show(pdfviewer->ab_window);
 }
 
