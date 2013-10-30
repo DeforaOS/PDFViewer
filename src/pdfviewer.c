@@ -74,6 +74,9 @@ static char const * _authors[] =
 
 static DesktopAccel _pdfviewer_accel[] =
 {
+#ifdef EMBEDDED
+	{ G_CALLBACK(on_contents), 0, GDK_KEY_F1 },
+#endif
 	{ G_CALLBACK(on_fullscreen), 0, GDK_KEY_F11 },
 	{ G_CALLBACK(on_next), 0, GDK_KEY_Page_Down },
 	{ G_CALLBACK(on_next), GDK_CONTROL_MASK, GDK_KEY_N },
@@ -125,6 +128,8 @@ static DesktopMenu _pdfviewer_menu_view[] =
 
 static DesktopMenu _pdfviewer_menu_help[] =
 {
+	{ "_Contents", G_CALLBACK(on_help_contents), "help-contents", 0,
+		GDK_KEY_F1 },
 	{ "_About", G_CALLBACK(on_help_about),
 #if GTK_CHECK_VERSION(2, 6, 0)
 		GTK_STOCK_ABOUT, 0, 0 },

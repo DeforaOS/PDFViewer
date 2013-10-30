@@ -1,6 +1,6 @@
 /* $Id$ */
 /* Copyright (c) 2010 Sébastien Bocahu <zecrazytux@zecrazytux.net> */
-/* Copyright (c) 2012 Pierre Pronchery <khorben@defora.org> */
+/* Copyright (c) 2011-2013 Pierre Pronchery <khorben@defora.org> */
 /* This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3 of the License.
@@ -25,11 +25,19 @@
 
 /* public */
 /* functions */
+/* on_closex */
 gboolean on_closex(gpointer data)
 {
 	PDFviewer * pdfviewer = data;
 
 	return pdfviewer_close(pdfviewer);
+}
+
+
+/* on_contents */
+void on_contents(gpointer data)
+{
+	desktop_help_contents(PACKAGE, "pdfviewer");
 }
 
 
@@ -105,6 +113,15 @@ void on_view_zoom_in(gpointer data)
 void on_view_zoom_out(gpointer data)
 {
 	on_zoom_out(data);
+}
+
+
+/* on_help_contents */
+void on_help_contents(gpointer data)
+{
+	PDFviewer * pdfviewer = data;
+
+	on_contents(pdfviewer);
 }
 
 
