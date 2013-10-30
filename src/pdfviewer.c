@@ -52,7 +52,7 @@ struct _PDFviewer
 	/* widgets */
 	PangoFontDescription * bold;
 	GtkWidget * window;
-#ifndef MENUBAR
+#ifndef EMBEDDED
 	GtkWidget * menubar;
 #endif
 	GtkWidget * view;
