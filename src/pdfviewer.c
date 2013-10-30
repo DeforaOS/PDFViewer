@@ -22,12 +22,14 @@ static char const _license[] =
 #include <string.h>
 #include <errno.h>
 #include <math.h>
+#include <libintl.h>
 #include <gdk/gdkkeysyms.h>
 #include <poppler.h>
 #include <Desktop.h>
 #include "callbacks.h"
 #include "pdfviewer.h"
 #include "../config.h"
+#define _(string) gettext(string)
 
 
 /* PDFviewer */
@@ -305,7 +307,7 @@ void pdfviewer_about(PDFviewer * pdfviewer)
 			G_CALLBACK(_about_on_closex), NULL);
 	desktop_about_dialog_set_authors(pdfviewer->ab_window, _authors);
 	desktop_about_dialog_set_comments(pdfviewer->ab_window,
-			"PDF viewer for the DeforaOS desktop");
+			_("PDF viewer for the DeforaOS desktop"));
 	desktop_about_dialog_set_copyright(pdfviewer->ab_window, _copyright);
 	desktop_about_dialog_set_license(pdfviewer->ab_window, _license);
 	desktop_about_dialog_set_logo_icon_name(pdfviewer->ab_window,
@@ -333,11 +335,11 @@ int pdfviewer_error(PDFviewer * pdfviewer, char const * message, int ret)
 			GTK_DIALOG_DESTROY_WITH_PARENT,
 			GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
 #if GTK_CHECK_VERSION(2, 6, 0)
-			"%s", "Error");
+			"%s", _("Error"));
 	gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(dialog),
 #endif
 			"%s", message);
-	gtk_window_set_title(GTK_WINDOW(dialog), "Error");
+	gtk_window_set_title(GTK_WINDOW(dialog), _("Error"));
 	g_signal_connect(G_OBJECT(dialog), "response", G_CALLBACK(
 				gtk_widget_destroy), NULL);
 	gtk_widget_show(dialog);
@@ -413,7 +415,7 @@ void pdfviewer_properties(PDFviewer * pdfviewer)
 
 	if(pdfviewer->pdf == NULL)
 		return;
-	dialog = gtk_dialog_new_with_buttons("Properties of FIXME",
+	dialog = gtk_dialog_new_with_buttons(_("Properties of FIXME"),
 			GTK_WINDOW(pdfviewer->window),
 			GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
 			GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE, NULL);
@@ -565,17 +567,17 @@ int pdfviewer_open_dialog(PDFviewer * pdfviewer)
 #ifdef DEBUG
 	fprintf(stderr, "DEBUG: %s()\n", __func__);
 #endif
-	dialog = gtk_file_chooser_dialog_new("Open file...",
+	dialog = gtk_file_chooser_dialog_new(_("Open file..."),
 			GTK_WINDOW(pdfviewer->window),
 			GTK_FILE_CHOOSER_ACTION_OPEN,
 			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
 			GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT, NULL);
 	filter = gtk_file_filter_new();
-	gtk_file_filter_set_name(filter, "PDF documents");
+	gtk_file_filter_set_name(filter, _("PDF documents"));
 	gtk_file_filter_add_mime_type(filter, "application/pdf");
 	gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), filter);
 	filter = gtk_file_filter_new();
-	gtk_file_filter_set_name(filter, "All files");
+	gtk_file_filter_set_name(filter, _("All files"));
 	gtk_file_filter_add_pattern(filter, "*");
 	gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), filter);
 	if(gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT)
@@ -647,7 +649,7 @@ void pdf_load_page(PDFviewer * pdfviewer)
 	gtk_statusbar_push(GTK_STATUSBAR(pdfviewer->statusbar),
 		gtk_statusbar_get_context_id(
 			GTK_STATUSBAR(pdfviewer->statusbar), "read-page"),
-		g_strdup_printf("Page %d/%d",
+		g_strdup_printf(_("Page %d/%d"),
 			pdfviewer->pdf->current + 1, pdfviewer->pdf->pages));
 
 	if (pdfviewer->pdf->surface)
@@ -790,7 +792,7 @@ void pdf_update_scale(PDFviewer * pdfviewer, const char op, double n)
 /* pdfviewer_set_title */
 static void _pdfviewer_set_title(PDFviewer * pdfviewer)
 {
-	char const * title = "(Untitled)";
+	char const * title = _("(Untitled)");
 	char * p = NULL;
 	char buf[256];
 
@@ -799,7 +801,7 @@ static void _pdfviewer_set_title(PDFviewer * pdfviewer)
 				!= NULL)
 			/* FIXME use the filename instead */
 			title = p;
-	snprintf(buf, sizeof(buf), "%s%s", "PDF viewer - ", title);
+	snprintf(buf, sizeof(buf), "%s%s", _("PDF viewer - "), title);
 	gtk_window_set_title(GTK_WINDOW(pdfviewer->window), buf);
 	free(p);
 }

@@ -9,10 +9,10 @@ INSTALL	= install
 
 all: $(TARGETS)
 
-PDFViewer.pot: POTFILES
+PDFViewer.pot: POTFILES ../config.sh
 	./gettext.sh -P "$(PREFIX)" -- "PDFViewer.pot"
 
-fr.mo: PDFViewer.pot fr.po
+fr.mo: PDFViewer.pot fr.po ../config.sh
 	./gettext.sh -P "$(PREFIX)" -- "fr.mo"
 
 clean:
