@@ -1,5 +1,6 @@
 /* $Id$ */
 /* Copyright (c) 2010 Sébastien Bocahu <zecrazytux@zecrazytux.net> */
+/* Copyright (c) 2013 Pierre Pronchery <khorben@defora.org> */
 /* This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3 of the License.
@@ -14,22 +15,47 @@
 
 #include <unistd.h>
 #include <stdio.h>
+#include <locale.h>
+#include <libintl.h>
 #include "pdfviewer.h"
 #include "../config.h"
+#define _(string) gettext(string)
 
 /* constants */
 #ifndef PREFIX
 # define PREFIX		"/usr/local"
 #endif
+#ifndef DATADIR
+# define DATADIR	PREFIX "/share"
+#endif
+#ifndef LOCALEDIR
+# define LOCALEDIR	DATADIR "/locale"
+#endif
+
+
+/* private */
+/* prototypes */
+static int _error(char const * message, int ret);
+static int _usage(void);
 
 
 /* functions */
+/* error */
+static int _error(char const * message, int ret)
+{
+	fputs("pdfviewer: ", stderr);
+	perror(message);
+	return ret;
+}
+
+
 /* usage */
 static int _usage(void)
 {
-	fputs("Usage: pdfviewer [file]\n", stderr);
+	fputs(_("Usage: pdfviewer [file]\n"), stderr);
 	return 1;
 }
+
 
 /* main */
 int main(int argc, char * argv[])
@@ -37,6 +63,10 @@ int main(int argc, char * argv[])
 	int o;
 	PDFviewer * pdfviewer;
 
+	if(setlocale(LC_ALL, "") == NULL)
+		_error("setlocale", 1);
+	bindtextdomain(PACKAGE, LOCALEDIR);
+	textdomain(PACKAGE);
 	gtk_init(&argc, &argv);
 	while((o = getopt(argc, argv, "")) != -1)
 		switch(o)
