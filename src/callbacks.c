@@ -30,7 +30,7 @@ gboolean on_closex(gpointer data)
 {
 	PDFviewer * pdfviewer = data;
 
-	pdfviewer_close(pdfviewer);
+	on_close(pdfviewer);
 	return FALSE;
 }
 
@@ -56,7 +56,7 @@ void on_file_close(gpointer data)
 {
 	PDFviewer * pdfviewer = data;
 
-	pdfviewer_close(pdfviewer);
+	on_close(pdfviewer);
 }
 
 
