@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=PDF viewer
 Comment=A simple PDF viewer
+TryExec=pdfviewer
 Exec=pdfviewer
 Icon=document-print-preview
 Type=Application
