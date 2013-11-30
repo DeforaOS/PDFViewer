@@ -107,6 +107,8 @@ static DesktopMenu _pdfviewer_menu_file[] =
 
 static DesktopMenu _pdfviewer_menu_edit[] =
 {
+	{ "_Preferences", G_CALLBACK(on_edit_preferences),
+		GTK_STOCK_PREFERENCES, GDK_CONTROL_MASK, GDK_KEY_P },
 	{ NULL, NULL, NULL, 0, 0 }
 };
 

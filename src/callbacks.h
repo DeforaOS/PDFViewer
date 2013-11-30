@@ -23,6 +23,7 @@
 
 /* functions */
 gboolean on_closex(gpointer data);
+void on_edit_preferences(gpointer data);
 void on_file_close(gpointer data);
 void on_file_open(gpointer data);
 void on_file_properties(gpointer data);
