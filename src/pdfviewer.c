@@ -594,6 +594,13 @@ int pdfviewer_open_dialog(PDFviewer * pdfviewer)
 }
 
 
+/* pdfviewer_show_preferences */
+void pdfviewer_show_preferences(PDFviewer * pdfviewer, gboolean show)
+{
+	/* FIXME implement */
+}
+
+
 /* pdf_close */
 void pdf_close(PDFviewer * pdfviewer)
 {

@@ -44,7 +44,9 @@ void on_contents(gpointer data)
 /* on_edit_preferences */
 void on_edit_preferences(gpointer data)
 {
-	/* FIXME implement */
+	PDFviewer * pdfviewer = data;
+
+	pdfviewer_show_preferences(pdfviewer, TRUE);
 }
 
 

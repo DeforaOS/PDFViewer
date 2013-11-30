@@ -1,6 +1,6 @@
 /* $Id$ */
 /* Copyright (c) 2010 Sébastien Bocahu <zecrazytux@zecrazytux.net> */
-/* Copyright (c) 2012 Pierre Pronchery <khorben@defora.org> */
+/* Copyright (c) 2011-2013 Pierre Pronchery <khorben@defora.org> */
 /* This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3 of the License.
@@ -46,6 +46,7 @@ void set_prevnext_sensitivity(PDFviewer * pdfviewer);
 
 void pdfviewer_about(PDFviewer * pdfviewer);
 int pdfviewer_error(PDFviewer * pdfviewer, char const * message, int ret);
+void pdfviewer_show_preferences(PDFviewer * pdfviewer, gboolean show);
 
 gboolean pdfviewer_close(PDFviewer * pdfviewer);
 int pdfviewer_open(PDFviewer * pdfviewer, char const * filename);
