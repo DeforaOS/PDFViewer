@@ -30,6 +30,7 @@ static char const _license[] =
 #include "pdfviewer.h"
 #include "../config.h"
 #define _(string) gettext(string)
+#define N_(string) (string)
 
 
 /* PDFviewer */
@@ -94,47 +95,48 @@ static DesktopAccel _pdfviewer_accel[] =
 #ifndef EMBEDDED
 static DesktopMenu _pdfviewer_menu_file[] =
 {
-	{ "_Open", G_CALLBACK(on_file_open), GTK_STOCK_OPEN, GDK_CONTROL_MASK,
-		GDK_KEY_O },
+	{ N_("_Open"), G_CALLBACK(on_file_open), GTK_STOCK_OPEN,
+		GDK_CONTROL_MASK, GDK_KEY_O },
 	{ "", NULL, NULL, 0, 0 },
-	{ "_Properties", G_CALLBACK(on_file_properties), GTK_STOCK_PROPERTIES,
-		GDK_MOD1_MASK, GDK_KEY_Return },
+	{ N_("_Properties"), G_CALLBACK(on_file_properties),
+		GTK_STOCK_PROPERTIES, GDK_MOD1_MASK, GDK_KEY_Return },
 	{ "", NULL, NULL, 0, 0 },
-	{ "_Close", G_CALLBACK(on_file_close), GTK_STOCK_CLOSE,
+	{ N_("_Close"), G_CALLBACK(on_file_close), GTK_STOCK_CLOSE,
 		GDK_CONTROL_MASK, GDK_KEY_W },
 	{ NULL, NULL, NULL, 0, 0 }
 };
 
 static DesktopMenu _pdfviewer_menu_edit[] =
 {
-	{ "_Preferences", G_CALLBACK(on_edit_preferences),
+	{ N_("_Preferences"), G_CALLBACK(on_edit_preferences),
 		GTK_STOCK_PREFERENCES, GDK_CONTROL_MASK, GDK_KEY_P },
 	{ NULL, NULL, NULL, 0, 0 }
 };
 
 static DesktopMenu _pdfviewer_menu_view[] =
 {
-	{ "Zoom _in", G_CALLBACK(on_view_zoom_in), "zoom-in",
+	{ N_("Zoom _in"), G_CALLBACK(on_view_zoom_in), "zoom-in",
 		GDK_CONTROL_MASK, GDK_KEY_plus },
-	{ "Zoom _out", G_CALLBACK(on_view_zoom_out), "zoom-out",
+	{ N_("Zoom _out"), G_CALLBACK(on_view_zoom_out), "zoom-out",
 		GDK_CONTROL_MASK, GDK_KEY_minus },
-	{ "Normal size", G_CALLBACK(on_view_normal_size), "zoom-original",
+	{ N_("Normal size"), G_CALLBACK(on_view_normal_size), "zoom-original",
 		GDK_CONTROL_MASK, GDK_KEY_0 },
 	{ "", NULL, NULL, 0, 0 },
 #if GTK_CHECK_VERSION(2, 8, 0)
-	{ "_Fullscreen", G_CALLBACK(on_view_fullscreen), GTK_STOCK_FULLSCREEN,
-		0, GDK_KEY_F11 },
+	{ N_("_Fullscreen"), G_CALLBACK(on_view_fullscreen),
+		GTK_STOCK_FULLSCREEN, 0, GDK_KEY_F11 },
 #else
-	{ "_Fullscreen", G_CALLBACK(on_view_fullscreen), NULL, 0, GDK_KEY_F11 },
+	{ N_("_Fullscreen"), G_CALLBACK(on_view_fullscreen), NULL, 0,
+		GDK_KEY_F11 },
 #endif
 	{ NULL, NULL, NULL, 0, 0 }
 };
 
 static DesktopMenu _pdfviewer_menu_help[] =
 {
-	{ "_Contents", G_CALLBACK(on_help_contents), "help-contents", 0,
+	{ N_("_Contents"), G_CALLBACK(on_help_contents), "help-contents", 0,
 		GDK_KEY_F1 },
-	{ "_About", G_CALLBACK(on_help_about),
+	{ N_("_About"), G_CALLBACK(on_help_about),
 #if GTK_CHECK_VERSION(2, 6, 0)
 		GTK_STOCK_ABOUT, 0, 0 },
 #else
@@ -145,28 +147,30 @@ static DesktopMenu _pdfviewer_menu_help[] =
 
 static DesktopMenubar _pdfviewer_menubar[] =
 {
-	{ "_File", _pdfviewer_menu_file },
-	{ "_Edit", _pdfviewer_menu_edit },
-	{ "_View", _pdfviewer_menu_view },
-	{ "_Help", _pdfviewer_menu_help },
+	{ N_("_File"), _pdfviewer_menu_file },
+	{ N_("_Edit"), _pdfviewer_menu_edit },
+	{ N_("_View"), _pdfviewer_menu_view },
+	{ N_("_Help"), _pdfviewer_menu_help },
 	{ NULL, NULL }
 };
 #endif
 
 static DesktopToolbar _pdfviewer_toolbar[] =
 {
-	{ "Open", G_CALLBACK(on_open), GTK_STOCK_OPEN, 0, 0, NULL },
+	{ N_("Open"), G_CALLBACK(on_open), GTK_STOCK_OPEN, 0, 0, NULL },
 	{ "", NULL, NULL, 0, 0, NULL },
-	{ "Far before", G_CALLBACK(on_far_before), GTK_STOCK_MEDIA_PREVIOUS,
+	{ N_("Far before"), G_CALLBACK(on_far_before), GTK_STOCK_MEDIA_PREVIOUS,
 		 0, 0, NULL },
-	{ "Previous", G_CALLBACK(on_previous), GTK_STOCK_GO_BACK,
+	{ N_("Previous"), G_CALLBACK(on_previous), GTK_STOCK_GO_BACK,
 		 0, 0, NULL },
-	{ "Next", G_CALLBACK(on_next), GTK_STOCK_GO_FORWARD, 0, 0, NULL },
-	{ "Far after", G_CALLBACK(on_far_after), GTK_STOCK_MEDIA_NEXT, 0, 0,
+	{ N_("Next"), G_CALLBACK(on_next), GTK_STOCK_GO_FORWARD, 0, 0, NULL },
+	{ N_("Far after"), G_CALLBACK(on_far_after), GTK_STOCK_MEDIA_NEXT, 0, 0,
 		NULL },
 	{ "", NULL, NULL, 0, 0, NULL },
-	{ "Zoom in", G_CALLBACK(on_zoom_in), GTK_STOCK_ZOOM_IN, 0, 0, NULL },
-	{ "Zoom out", G_CALLBACK(on_zoom_out), GTK_STOCK_ZOOM_OUT, 0, 0, NULL },
+	{ N_("Zoom in"), G_CALLBACK(on_zoom_in), GTK_STOCK_ZOOM_IN, 0, 0,
+		NULL },
+	{ N_("Zoom out"), G_CALLBACK(on_zoom_out), GTK_STOCK_ZOOM_OUT, 0, 0,
+		NULL },
 	{ NULL, NULL, NULL, 0, 0, NULL }
 };
 
