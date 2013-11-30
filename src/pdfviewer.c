@@ -244,7 +244,7 @@ PDFviewer * pdfviewer_new(void)
 	
 	pdfviewer->view = gtk_drawing_area_new();
 	gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(widget),
-		pdfviewer->view);
+			pdfviewer->view);
 	gtk_box_pack_start(GTK_BOX(vbox), widget, TRUE, TRUE, 0);
 
 	/* statusbar */
@@ -270,7 +270,10 @@ void pdfviewer_delete(PDFviewer * pdfviewer)
 	if(pdfviewer->pdf != NULL)
 		pdf_delete(pdfviewer->pdf);
 #endif
+	pdf_close(pdfviewer);
 	pango_font_description_free(pdfviewer->bold);
+	if(pdfviewer->window != NULL)
+		gtk_widget_destroy(pdfviewer->window);
 	free(pdfviewer);
 }
 
@@ -398,8 +401,6 @@ int pdfviewer_open(PDFviewer * pdfviewer, char const * filename)
 	/* FIXME handle errors */
 	if(filename == NULL)
 		return pdfviewer_open_dialog(pdfviewer);
-	if(pdfviewer->pdf != NULL)
-		pdf_close(pdfviewer);
 	if((ret = pdf_open(pdfviewer, filename)) != 0)
 		return ret;
 	_pdfviewer_set_title(pdfviewer);
@@ -618,13 +619,13 @@ void pdf_close(PDFviewer * pdfviewer)
 #ifdef DEBUG
 	fprintf(stderr, "DEBUG: %s()\n", __func__);
 #endif
-
 #if GTK_CHECK_VERSION(2, 14, 0)
 	window = gtk_widget_get_window(pdfviewer->view);
 #else
 	window = pdfviewer->view->window;
 #endif
-	gdk_window_clear(window);
+	if(window != NULL)
+		gdk_window_clear(window);
 	if(pdfviewer->pdf != NULL)
 		free(pdfviewer->pdf);
 	pdfviewer->pdf = NULL;
@@ -636,13 +637,12 @@ void pdf_load_page(PDFviewer * pdfviewer)
 {
 	PopplerPage *page;
 	cairo_t *cr;
-	gdouble      width, height;
+	gdouble width, height;
 	GtkAllocation view_allocation;
 
 #ifdef DEBUG
 	fprintf(stderr, "DEBUG: %s()\n", __func__);
 #endif
-
 	if((page = poppler_document_get_page(pdfviewer->pdf->document,
 					pdfviewer->pdf->current)) == NULL)
 		/* FIXME prevent this from happening but keep the check in */
@@ -690,9 +690,8 @@ void pdf_load_page(PDFviewer * pdfviewer)
 	cairo_destroy(cr);
 	g_object_unref(page);
 
-	g_signal_connect(G_OBJECT(pdfviewer->view), "expose-event",
-		G_CALLBACK(pdf_render_area),
-		(gpointer) pdfviewer->pdf);
+	g_signal_connect(pdfviewer->view, "expose-event", G_CALLBACK(
+				pdf_render_area), pdfviewer->pdf);
 
 	gtk_widget_set_size_request(pdfviewer->view,
 		pdfviewer->pdf->scale * ceil(width),
@@ -716,7 +715,8 @@ void pdf_render_area(GtkWidget *area, GdkEventExpose *event, void * data)
 #else
 	window = area->window;
 #endif
-        gdk_window_clear(window);
+	if(window != NULL)
+		gdk_window_clear(window);
 	if(pdf == NULL)
 		return;
         cr = gdk_cairo_create(window);
