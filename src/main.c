@@ -22,6 +22,9 @@
 #define _(string) gettext(string)
 
 /* constants */
+#ifndef PROGNAME
+# define PROGNAME	"pdfviewer"
+#endif
 #ifndef PREFIX
 # define PREFIX		"/usr/local"
 #endif
@@ -43,7 +46,7 @@ static int _usage(void);
 /* error */
 static int _error(char const * message, int ret)
 {
-	fputs("pdfviewer: ", stderr);
+	fputs(PROGNAME ": ", stderr);
 	perror(message);
 	return ret;
 }
@@ -52,7 +55,7 @@ static int _error(char const * message, int ret)
 /* usage */
 static int _usage(void)
 {
-	fputs(_("Usage: pdfviewer [file]\n"), stderr);
+	fprintf(stderr, _("Usage: %s [file]\n"), PROGNAME);
 	return 1;
 }
 

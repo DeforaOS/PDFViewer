@@ -32,6 +32,11 @@ static char const _license[] =
 #define _(string) gettext(string)
 #define N_(string) (string)
 
+/* constants */
+#ifndef PROGNAME
+# define PROGNAME	"pdfviewer"
+#endif
+
 
 /* PDFviewer */
 /* private */
@@ -544,7 +549,7 @@ int pdf_open(PDFviewer * pdfviewer, const char * filename)
 	{
 		if(error != NULL)
 		{
-			fprintf(stderr, "%s: %s: %s", PACKAGE, filename,
+			fprintf(stderr, PROGNAME ": %s: %s", filename,
 					error->message);
 			g_error_free(error);
 		}

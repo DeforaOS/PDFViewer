@@ -22,6 +22,11 @@
 #include "callbacks.h"
 #include "../config.h"
 
+/* constants */
+#ifndef PROGNAME
+# define PROGNAME	"pdfviewer"
+#endif
+
 
 /* public */
 /* functions */
@@ -38,7 +43,7 @@ gboolean on_closex(gpointer data)
 /* on_contents */
 void on_contents(gpointer data)
 {
-	desktop_help_contents(PACKAGE, "pdfviewer");
+	desktop_help_contents(PACKAGE, PROGNAME);
 }
 
 
