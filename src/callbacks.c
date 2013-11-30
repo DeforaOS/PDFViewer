@@ -36,7 +36,7 @@ gboolean on_closex(gpointer data)
 	PDFviewer * pdfviewer = data;
 
 	on_close(pdfviewer);
-	return FALSE;
+	return TRUE;
 }
 
 
