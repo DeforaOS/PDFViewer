@@ -354,14 +354,13 @@ int pdfviewer_error(PDFviewer * pdfviewer, char const * message, int ret)
 
 
 /* pdfviewer_close */
-gboolean pdfviewer_close(PDFviewer * pdfviewer)
+void pdfviewer_close(PDFviewer * pdfviewer)
 {
 #ifdef DEBUG
 	fprintf(stderr, "DEBUG: %s()\n", __func__);
 #endif
 	gtk_widget_hide(pdfviewer->window);
 	gtk_main_quit();
-	return FALSE;
 }
 
 

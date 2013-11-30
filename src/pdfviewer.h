@@ -48,7 +48,7 @@ void pdfviewer_about(PDFviewer * pdfviewer);
 int pdfviewer_error(PDFviewer * pdfviewer, char const * message, int ret);
 void pdfviewer_show_preferences(PDFviewer * pdfviewer, gboolean show);
 
-gboolean pdfviewer_close(PDFviewer * pdfviewer);
+void pdfviewer_close(PDFviewer * pdfviewer);
 int pdfviewer_open(PDFviewer * pdfviewer, char const * filename);
 int pdfviewer_open_dialog(PDFviewer * pdfviewer);
 void pdfviewer_properties(PDFviewer * pdfviewer);
