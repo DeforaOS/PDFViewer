@@ -549,7 +549,7 @@ int pdf_open(PDFviewer * pdfviewer, const char * filename)
 	{
 		if(error != NULL)
 		{
-			fprintf(stderr, PROGNAME ": %s: %s", filename,
+			fprintf(stderr, PROGNAME ": %s: %s\n", filename,
 					error->message);
 			g_error_free(error);
 		}
