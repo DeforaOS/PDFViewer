@@ -523,11 +523,11 @@ int pdf_open(PDFviewer * pdfviewer, const char * filename)
 		/* XXX report error */
 		return -1;
 	if(filename[0] == '/')
-		uri = g_strdup_printf("%s%s", "file:", filename);
+		uri = g_strdup_printf("%s%s", "file://", filename);
 	else
 	{
 		p = g_get_current_dir();
-		uri = g_strdup_printf("%s%s/%s", "file:", p, filename);
+		uri = g_strdup_printf("%s%s/%s", "file://", p, filename);
 		g_free(p);
 	}
 	pdf = g_new0(PDF, 1);
