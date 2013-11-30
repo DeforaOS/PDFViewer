@@ -551,7 +551,8 @@ int pdf_open(PDFviewer * pdfviewer, const char * filename)
 		g_free(pdf);
 		return -1;
 	}
-	/* FIXME destroy the previous data */
+	/* close the current document if any was opened */
+	pdf_close(pdfviewer);
 	pdfviewer->pdf = pdf;
 	pdf->pages = poppler_document_get_n_pages(pdf->document);
 	pdf_update_current(pdfviewer, '=', 0);
@@ -621,6 +622,7 @@ void pdf_close(PDFviewer * pdfviewer)
 	gdk_window_clear(window);
 	if(pdfviewer->pdf != NULL)
 		free(pdfviewer->pdf);
+	pdfviewer->pdf = NULL;
 }
 
 
