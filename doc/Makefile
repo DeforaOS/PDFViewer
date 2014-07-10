@@ -12,7 +12,7 @@ all: $(TARGETS)
 pdfviewer.1: pdfviewer.xml
 	./docbook.sh -P "$(PREFIX)" -- "pdfviewer.1"
 
-pdfviewer.html: pdfviewer.xml
+pdfviewer.html: manual.css.xml pdfviewer.css.xml pdfviewer.xml
 	./docbook.sh -P "$(PREFIX)" -- "pdfviewer.html"
 
 clean:
