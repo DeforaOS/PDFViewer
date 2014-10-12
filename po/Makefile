@@ -17,6 +17,7 @@ fr.mo: PDFViewer.pot fr.po ../config.sh
 
 clean:
 	$(RM) -- $(PDFViewer.pot_OBJS) $(fr.mo_OBJS)
+	./gettext.sh -c -P "$(PREFIX)" -- "PDFViewer.pot"
 	./gettext.sh -c -P "$(PREFIX)" -- "fr.mo"
 
 distclean: clean

@@ -17,6 +17,7 @@ pdfviewer.html: manual.css.xml pdfviewer.css.xml pdfviewer.xml
 
 clean:
 	$(RM) -- $(pdfviewer.1_OBJS) $(pdfviewer.html_OBJS)
+	./docbook.sh -c -P "$(PREFIX)" -- "pdfviewer.1"
 	./docbook.sh -c -P "$(PREFIX)" -- "pdfviewer.html"
 
 distclean: clean
