@@ -1,4 +1,5 @@
-TARGETS	= pdfviewer
+TARGETS	= $(OBJDIR)pdfviewer
+OBJDIR	=
 PREFIX	= /usr/local
 DESTDIR	=
 BINDIR	= $(PREFIX)/bin
@@ -18,21 +19,21 @@ INSTALL	= install
 
 all: $(TARGETS)
 
-pdfviewer_OBJS = callbacks.o pdfviewer.o main.o
+pdfviewer_OBJS = $(OBJDIR)callbacks.o $(OBJDIR)pdfviewer.o $(OBJDIR)main.o
 pdfviewer_CFLAGS = $(CPPFLAGSF) $(CPPFLAGS) $(CFLAGSF) $(CFLAGS)
 pdfviewer_LDFLAGS = $(LDFLAGSF) $(LDFLAGS)
 
-pdfviewer: $(pdfviewer_OBJS)
-	$(CC) -o pdfviewer $(pdfviewer_OBJS) $(pdfviewer_LDFLAGS)
+$(OBJDIR)pdfviewer: $(pdfviewer_OBJS)
+	$(CC) -o $(OBJDIR)pdfviewer $(pdfviewer_OBJS) $(pdfviewer_LDFLAGS)
 
-callbacks.o: callbacks.c callbacks.h
-	$(CC) $(pdfviewer_CFLAGS) -c callbacks.c
+$(OBJDIR)callbacks.o: callbacks.c callbacks.h
+	$(CC) $(pdfviewer_CFLAGS) -o $(OBJDIR)callbacks.o -c callbacks.c
 
-pdfviewer.o: pdfviewer.c callbacks.h pdfviewer.h ../config.h
-	$(CC) $(pdfviewer_CFLAGS) -c pdfviewer.c
+$(OBJDIR)pdfviewer.o: pdfviewer.c callbacks.h pdfviewer.h ../config.h
+	$(CC) $(pdfviewer_CFLAGS) -o $(OBJDIR)pdfviewer.o -c pdfviewer.c
 
-main.o: main.c
-	$(CC) $(pdfviewer_CFLAGS) -c main.c
+$(OBJDIR)main.o: main.c
+	$(CC) $(pdfviewer_CFLAGS) -o $(OBJDIR)main.o -c main.c
 
 clean:
 	$(RM) -- $(pdfviewer_OBJS)
@@ -42,7 +43,7 @@ distclean: clean
 
 install: $(TARGETS)
 	$(MKDIR) $(DESTDIR)$(BINDIR)
-	$(INSTALL) -m 0755 pdfviewer $(DESTDIR)$(BINDIR)/pdfviewer
+	$(INSTALL) -m 0755 $(OBJDIR)pdfviewer $(DESTDIR)$(BINDIR)/pdfviewer
 
 uninstall:
 	$(RM) -- $(DESTDIR)$(BINDIR)/pdfviewer

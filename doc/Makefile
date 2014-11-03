@@ -1,4 +1,5 @@
-TARGETS	= pdfviewer.1 pdfviewer.html
+TARGETS	= $(OBJDIR)pdfviewer.1 $(OBJDIR)pdfviewer.html
+OBJDIR	=
 PREFIX	= /usr/local
 DESTDIR	=
 RM	= rm -f
@@ -9,11 +10,11 @@ INSTALL	= install
 
 all: $(TARGETS)
 
-pdfviewer.1: pdfviewer.xml
-	./docbook.sh -P "$(PREFIX)" -- "pdfviewer.1"
+$(OBJDIR)pdfviewer.1: pdfviewer.xml
+	./docbook.sh -P "$(PREFIX)" -- "$(OBJDIR)pdfviewer.1"
 
-pdfviewer.html: manual.css.xml pdfviewer.css.xml pdfviewer.xml
-	./docbook.sh -P "$(PREFIX)" -- "pdfviewer.html"
+$(OBJDIR)pdfviewer.html: manual.css.xml pdfviewer.css.xml pdfviewer.xml
+	./docbook.sh -P "$(PREFIX)" -- "$(OBJDIR)pdfviewer.html"
 
 clean:
 	$(RM) -- $(pdfviewer.1_OBJS) $(pdfviewer.html_OBJS)
@@ -24,8 +25,8 @@ distclean: clean
 	$(RM) -- $(TARGETS)
 
 install: $(TARGETS)
-	./docbook.sh -P "$(DESTDIR)$(PREFIX)" -i -- "pdfviewer.1"
-	./docbook.sh -P "$(DESTDIR)$(PREFIX)" -i -- "pdfviewer.html"
+	./docbook.sh -P "$(DESTDIR)$(PREFIX)" -i -- "$(OBJDIR)pdfviewer.1"
+	./docbook.sh -P "$(DESTDIR)$(PREFIX)" -i -- "$(OBJDIR)pdfviewer.html"
 
 uninstall:
 	./docbook.sh -P "$(DESTDIR)$(PREFIX)" -u -- "pdfviewer.1"
