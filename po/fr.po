@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFViewer 0.0.01\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-31 00:55+0100\n"
+"POT-Creation-Date: 2014-12-27 18:31+0100\n"
 "PO-Revision-Date: 2013-10-31 00:44+0100\n"
 "Last-Translator: Pierre Pronchery <khorben@defora.org>\n"
 "Language-Team: French\n"
@@ -16,43 +16,128 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../src/main.c:55
-msgid "Usage: pdfviewer [file]\n"
-msgstr "Usage: pdfviewer [fichier]\n"
+#: ../src/main.c:58
+#, c-format
+msgid "Usage: %s [file]\n"
+msgstr "Usage: %s [fichier]\n"
 
-#: ../src/pdfviewer.c:310
+#: ../src/pdfviewer.c:103
+msgid "_Open"
+msgstr "_Ouvrir"
+
+#: ../src/pdfviewer.c:106
+msgid "_Properties"
+msgstr "_Propriétés"
+
+#: ../src/pdfviewer.c:109
+msgid "_Close"
+msgstr "_Fermer"
+
+#: ../src/pdfviewer.c:116
+msgid "_Preferences"
+msgstr "_Préférences"
+
+#: ../src/pdfviewer.c:123
+msgid "Zoom _in"
+msgstr ""
+
+#: ../src/pdfviewer.c:125
+msgid "Zoom _out"
+msgstr ""
+
+#: ../src/pdfviewer.c:127
+msgid "Normal size"
+msgstr ""
+
+#: ../src/pdfviewer.c:131 ../src/pdfviewer.c:134
+msgid "_Fullscreen"
+msgstr "_Plein écran"
+
+#: ../src/pdfviewer.c:142
+msgid "_Contents"
+msgstr ""
+
+#: ../src/pdfviewer.c:144
+msgid "_About"
+msgstr "À _propos"
+
+#: ../src/pdfviewer.c:155
+msgid "_File"
+msgstr "_Fichier"
+
+#: ../src/pdfviewer.c:156
+msgid "_Edit"
+msgstr "É_dition"
+
+#: ../src/pdfviewer.c:157
+msgid "_View"
+msgstr "_Vue"
+
+#: ../src/pdfviewer.c:158
+msgid "_Help"
+msgstr "_Aide"
+
+#: ../src/pdfviewer.c:165
+msgid "Open"
+msgstr "Ouvrir"
+
+#: ../src/pdfviewer.c:167
+msgid "Far before"
+msgstr ""
+
+#: ../src/pdfviewer.c:169
+msgid "Previous"
+msgstr "Précédent"
+
+#: ../src/pdfviewer.c:171
+msgid "Next"
+msgstr "Suivant"
+
+#: ../src/pdfviewer.c:172
+msgid "Far after"
+msgstr ""
+
+#: ../src/pdfviewer.c:175
+msgid "Zoom in"
+msgstr ""
+
+#: ../src/pdfviewer.c:177
+msgid "Zoom out"
+msgstr ""
+
+#: ../src/pdfviewer.c:324
 msgid "PDF viewer for the DeforaOS desktop"
-msgstr "Visionneur PDF pour l'environnement DeforaOS"
+msgstr "Visionneuse PDF pour l'environnement DeforaOS"
 
-#: ../src/pdfviewer.c:338 ../src/pdfviewer.c:342
+#: ../src/pdfviewer.c:352 ../src/pdfviewer.c:356
 msgid "Error"
 msgstr "Erreur"
 
-#: ../src/pdfviewer.c:418
+#: ../src/pdfviewer.c:429
 msgid "Properties of FIXME"
-msgstr "Priopriétés de FIXME"
+msgstr "Propriétés de FIXME"
 
-#: ../src/pdfviewer.c:570
+#: ../src/pdfviewer.c:582
 msgid "Open file..."
 msgstr "Ouvrir le fichier..."
 
-#: ../src/pdfviewer.c:576
+#: ../src/pdfviewer.c:588
 msgid "PDF documents"
 msgstr "Documents PDF"
 
-#: ../src/pdfviewer.c:580
+#: ../src/pdfviewer.c:592
 msgid "All files"
 msgstr "Tous les fichiers"
 
-#: ../src/pdfviewer.c:652
+#: ../src/pdfviewer.c:671
 #, c-format
 msgid "Page %d/%d"
 msgstr "Page %d/%d"
 
-#: ../src/pdfviewer.c:795
+#: ../src/pdfviewer.c:814
 msgid "(Untitled)"
 msgstr "(Sans titre)"
 
-#: ../src/pdfviewer.c:804
+#: ../src/pdfviewer.c:823
 msgid "PDF viewer - "
-msgstr "Visionneur PDF - "
+msgstr "Visionneuse PDF - "
