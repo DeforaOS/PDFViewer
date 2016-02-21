@@ -41,15 +41,15 @@ msgstr "_Préférences"
 
 #: ../src/pdfviewer.c:123
 msgid "Zoom _in"
-msgstr ""
+msgstr "Zoome +"
 
 #: ../src/pdfviewer.c:125
 msgid "Zoom _out"
-msgstr ""
+msgstr "Zoom -"
 
 #: ../src/pdfviewer.c:127
 msgid "Normal size"
-msgstr ""
+msgstr "Taille normale"
 
 #: ../src/pdfviewer.c:131 ../src/pdfviewer.c:134
 msgid "_Fullscreen"
@@ -57,7 +57,7 @@ msgstr "_Plein écran"
 
 #: ../src/pdfviewer.c:142
 msgid "_Contents"
-msgstr ""
+msgstr "_Sommaire"
 
 #: ../src/pdfviewer.c:144
 msgid "_About"
@@ -85,7 +85,7 @@ msgstr "Ouvrir"
 
 #: ../src/pdfviewer.c:167
 msgid "Far before"
-msgstr ""
+msgstr "Bien avant"
 
 #: ../src/pdfviewer.c:169
 msgid "Previous"
@@ -97,15 +97,15 @@ msgstr "Suivant"
 
 #: ../src/pdfviewer.c:172
 msgid "Far after"
-msgstr ""
+msgstr "Bien après"
 
 #: ../src/pdfviewer.c:175
 msgid "Zoom in"
-msgstr ""
+msgstr "Zoom +"
 
 #: ../src/pdfviewer.c:177
 msgid "Zoom out"
-msgstr ""
+msgstr "Zoom -"
 
 #: ../src/pdfviewer.c:324
 msgid "PDF viewer for the DeforaOS desktop"
