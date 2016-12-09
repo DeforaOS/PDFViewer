@@ -1,7 +1,7 @@
 /* $Id$ */
 static char const _copyright[] =
 "Copyright © 2010-2011 Sébastien Bocahu <zecrazytux@zecrazytux.net>\n"
-"Copyright © 2011-2014 Pierre Pronchery <khorben@defora.org>";
+"Copyright © 2011-2016 Pierre Pronchery <khorben@defora.org>";
 static char const _license[] =
 "This program is free software; you can redistribute it and/or modify\n"
 "it under the terms of the GNU General Public License as published by the\n"
