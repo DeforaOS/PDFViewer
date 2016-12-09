@@ -435,7 +435,7 @@ void pdfviewer_properties(PDFviewer * pdfviewer)
 #if GTK_CHECK_VERSION(2, 14, 0)
 	vbox = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
 #else
-	vbox = dialog->vbox;
+	vbox = GTK_DIALOG(dialog)->vbox;
 #endif
 	gtk_box_set_spacing(GTK_BOX(vbox), 4);
 	/* title */
