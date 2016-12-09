@@ -447,36 +447,36 @@ void pdfviewer_properties(PDFviewer * pdfviewer)
 	free(p);
 	/* author */
 	p = poppler_document_get_author(pdfviewer->pdf->document);
-	hbox = _properties_label(pdfviewer, group, "Author: ", p);
+	hbox = _properties_label(pdfviewer, group, _("Author: "), p);
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, TRUE, 0);
 	free(p);
 	/* subject */
 	p = poppler_document_get_subject(pdfviewer->pdf->document);
-	hbox = _properties_label(pdfviewer, group, "Subject: ", p);
+	hbox = _properties_label(pdfviewer, group, _("Subject: "), p);
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, TRUE, 0);
 	free(p);
 	/* keywords */
 	p = poppler_document_get_keywords(pdfviewer->pdf->document);
-	hbox = _properties_label(pdfviewer, group, "Keywords: ", p);
+	hbox = _properties_label(pdfviewer, group, _("Keywords: "), p);
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, TRUE, 0);
 	free(p);
 	/* creator */
 	p = poppler_document_get_creator(pdfviewer->pdf->document);
-	hbox = _properties_label(pdfviewer, group, "Creator: ", p);
+	hbox = _properties_label(pdfviewer, group, _("Creator: "), p);
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, TRUE, 0);
 	free(p);
 	/* producer */
 	p = poppler_document_get_producer(pdfviewer->pdf->document);
-	hbox = _properties_label(pdfviewer, group, "Producer: ", p);
+	hbox = _properties_label(pdfviewer, group, _("Producer: "), p);
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, TRUE, 0);
 	free(p);
 	/* creation time */
 	t = poppler_document_get_creation_date(pdfviewer->pdf->document);
-	hbox = _properties_label_date(pdfviewer, group, "Created on: ", t);
+	hbox = _properties_label_date(pdfviewer, group, _("Created on: "), t);
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, TRUE, 0);
 	/* modification time */
 	t = poppler_document_get_modification_date(pdfviewer->pdf->document);
-	hbox = _properties_label_date(pdfviewer, group, "Modified on: ", t);
+	hbox = _properties_label_date(pdfviewer, group, _("Modified on: "), t);
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, TRUE, 0);
 	gtk_widget_show_all(vbox);
 	gtk_dialog_run(GTK_DIALOG(dialog));
