@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFViewer 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-21 19:04+0100\n"
+"POT-Creation-Date: 2016-12-09 01:12+0100\n"
 "PO-Revision-Date: 2013-10-31 00:44+0100\n"
 "Last-Translator: Pierre Pronchery <khorben@defora.org>\n"
 "Language-Team: French\n"
@@ -118,6 +118,34 @@ msgstr "Erreur"
 #: ../src/pdfviewer.c:429
 msgid "Properties of FIXME"
 msgstr "Propriétés de FIXME"
+
+#: ../src/pdfviewer.c:450
+msgid "Author: "
+msgstr "Auteur : "
+
+#: ../src/pdfviewer.c:455
+msgid "Subject: "
+msgstr "Sujet : "
+
+#: ../src/pdfviewer.c:460
+msgid "Keywords: "
+msgstr "Mots clé : "
+
+#: ../src/pdfviewer.c:465
+msgid "Creator: "
+msgstr "Créateur : "
+
+#: ../src/pdfviewer.c:470
+msgid "Producer: "
+msgstr "Producteur : "
+
+#: ../src/pdfviewer.c:475
+msgid "Created on: "
+msgstr "Créé le : "
+
+#: ../src/pdfviewer.c:479
+msgid "Modified on: "
+msgstr "Modifié le : "
 
 #: ../src/pdfviewer.c:582
 msgid "Open file..."
