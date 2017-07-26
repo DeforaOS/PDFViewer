@@ -43,7 +43,7 @@ _embedded()
 	objdir=$($MKTEMP -d)
 	[ $? -eq 0 ]						|| return 2
 
-	(cd .. && sh -c "$make OBJDIR='$objdir/' $TARGETS")
+	(cd ../src && sh -c "$make OBJDIR='$objdir/' $TARGETS")
 	ret=$?
 	[ $ret -eq 0 ] || echo "$PROGNAME: $1: Could not build for embedded" 1>&2
 	$RM -r -- "$objdir"
@@ -52,4 +52,28 @@ _embedded()
 
 
 #main
-_embedded							|| exit 2
+clean=0
+while getopts "cP:" name; do
+	case "$name" in
+		c)
+			clean=1
+			;;
+		P)
+			#XXX ignored for compatibility
+			;;
+		?)
+			_usage
+			exit $?
+			;;
+	esac
+done
+shift $((OPTIND - 1))
+if [ $# -ne 1 ]; then
+	_usage
+	exit $?
+fi
+target="$1"
+
+[ $clean -ne 0 ] && exit 0
+
+_embedded > "$target" 2>&1					|| exit 2
