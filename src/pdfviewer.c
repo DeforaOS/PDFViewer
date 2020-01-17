@@ -429,7 +429,7 @@ void pdfviewer_properties(PDFviewer * pdfviewer)
 
 	if(pdfviewer->pdf == NULL)
 		return;
-	dialog = gtk_dialog_new_with_buttons(_("Properties of FIXME"),
+	dialog = gtk_dialog_new_with_buttons(_("Properties"),
 			GTK_WINDOW(pdfviewer->window),
 			GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
 			GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE, NULL);
