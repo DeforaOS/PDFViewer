@@ -191,14 +191,12 @@ PDFviewer * pdfviewer_new(void)
 {
 	PDFviewer * pdfviewer;
 	GtkAccelGroup * group;
-	GtkSettings * settings;
 	GtkWidget * vbox;
 	GtkWidget * widget;
 	GtkToolItem * toolitem;
 
 	if((pdfviewer = malloc(sizeof(*pdfviewer))) == NULL)
 		return NULL;
-	settings = gtk_settings_get_default();
 	pdfviewer->pdf = NULL;
 	/* widgets */
 	pdfviewer->bold = pango_font_description_new();
