@@ -28,15 +28,11 @@ static char const _license[] =
 #include <System.h>
 #include <Desktop.h>
 #include "callbacks.h"
+#include "common.h"
 #include "pdfviewer.h"
 #include "../config.h"
 #define _(string) gettext(string)
 #define N_(string) (string)
-
-/* constants */
-#ifndef PROGNAME
-# define PROGNAME	"pdfviewer"
-#endif
 
 
 /* PDFviewer */
@@ -562,8 +558,8 @@ int pdf_open(PDFviewer * pdfviewer, const char * filename)
 	{
 		if(error != NULL)
 		{
-			fprintf(stderr, PROGNAME ": %s: %s\n", filename,
-					error->message);
+			fprintf(stderr, PROGNAME_PDFVIEWER ": %s: %s\n",
+					filename, error->message);
 			g_error_free(error);
 		}
 		g_free(pdf);

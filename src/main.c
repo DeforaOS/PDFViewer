@@ -17,14 +17,12 @@
 #include <stdio.h>
 #include <locale.h>
 #include <libintl.h>
+#include "common.h"
 #include "pdfviewer.h"
 #include "../config.h"
 #define _(string) gettext(string)
 
 /* constants */
-#ifndef PROGNAME
-# define PROGNAME	"pdfviewer"
-#endif
 #ifndef PREFIX
 # define PREFIX		"/usr/local"
 #endif
@@ -46,7 +44,7 @@ static int _usage(void);
 /* error */
 static int _error(char const * message, int ret)
 {
-	fputs(PROGNAME ": ", stderr);
+	fputs(PROGNAME_PDFVIEWER ": ", stderr);
 	perror(message);
 	return ret;
 }
@@ -55,7 +53,7 @@ static int _error(char const * message, int ret)
 /* usage */
 static int _usage(void)
 {
-	fprintf(stderr, _("Usage: %s [file]\n"), PROGNAME);
+	fprintf(stderr, _("Usage: %s [file]\n"), PROGNAME_PDFVIEWER);
 	return 1;
 }
 

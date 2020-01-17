@@ -18,14 +18,10 @@
 #include <stdlib.h>
 #include <libintl.h>
 #include <Desktop.h>
+#include "common.h"
 #include "pdfviewer.h"
 #include "callbacks.h"
 #include "../config.h"
-
-/* constants */
-#ifndef PROGNAME
-# define PROGNAME	"pdfviewer"
-#endif
 
 
 /* public */
@@ -43,7 +39,7 @@ gboolean on_closex(gpointer data)
 /* on_contents */
 void on_contents(gpointer data)
 {
-	desktop_help_contents(PACKAGE, PROGNAME);
+	desktop_help_contents(PACKAGE, PROGNAME_PDFVIEWER);
 }
 
 
