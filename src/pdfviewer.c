@@ -206,7 +206,7 @@ PDFviewer * pdfviewer_new(void)
 	_pdfviewer_set_title(pdfviewer);
 #if GTK_CHECK_VERSION(2, 6, 0)
 	gtk_window_set_icon_name(GTK_WINDOW(pdfviewer->window),
-		"gnome-mime-application-pdf");
+		"document-print-preview");
 #endif
 	g_signal_connect_swapped(G_OBJECT(pdfviewer->window), "delete-event",
 			G_CALLBACK(on_closex), pdfviewer);
