@@ -734,19 +734,21 @@ void pdf_update_current(PDFviewer * pdfviewer, const char op, int n)
 #endif
 	switch(op)
 	{
-		case '=':	if((n >= 0) && 
-				  (n <= (pdfviewer->pdf->pages - 1)))
-					pdfviewer->pdf->current = n;
-					break;
-		case '+':	if((pdfviewer->pdf->current + n)
-				   <= pdfviewer->pdf->pages)
-					pdfviewer->pdf->current =
-						pdfviewer->pdf->current + n;
-					break;
-		case '-':	if((pdfviewer->pdf->current - n) >= 0)	
-					pdfviewer->pdf->current =
-						pdfviewer->pdf->current - n;
-					break;
+		case '=':
+			if((n >= 0) && (n <= (pdfviewer->pdf->pages - 1)))
+				pdfviewer->pdf->current = n;
+			break;
+		case '+':
+			if((pdfviewer->pdf->current + n)
+					<= pdfviewer->pdf->pages)
+				pdfviewer->pdf->current =
+					pdfviewer->pdf->current + n;
+			break;
+		case '-':
+			if((pdfviewer->pdf->current - n) >= 0)
+				pdfviewer->pdf->current =
+					pdfviewer->pdf->current - n;
+			break;
 	}
 	set_prevnext_sensitivity(pdfviewer);
 }
