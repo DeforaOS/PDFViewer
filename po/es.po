@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFViewer 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-09 01:12+0100\n"
+"POT-Creation-Date: 2020-01-17 06:57+0100\n"
 "PO-Revision-Date: 2014-12-28 20:14+0100\n"
 "Last-Translator: Pierre Pronchery <EMAIL@ADDRESS>\n"
 "Language-Team: Spanish\n"
@@ -18,156 +18,156 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/main.c:58
+#: ../src/main.c:56
 #, c-format
 msgid "Usage: %s [file]\n"
-msgstr ""
+msgstr "Usage: %s [archivo]\n"
+
+#: ../src/pdfviewer.c:100
+msgid "_Open"
+msgstr "_Abrir"
 
 #: ../src/pdfviewer.c:103
-msgid "_Open"
-msgstr ""
+msgid "_Properties"
+msgstr "_Propriedades"
 
 #: ../src/pdfviewer.c:106
-msgid "_Properties"
-msgstr ""
-
-#: ../src/pdfviewer.c:109
 msgid "_Close"
-msgstr ""
+msgstr "_Cerrar"
 
-#: ../src/pdfviewer.c:116
+#: ../src/pdfviewer.c:113
 msgid "_Preferences"
-msgstr ""
+msgstr "_Preferencias"
 
-#: ../src/pdfviewer.c:123
+#: ../src/pdfviewer.c:120
 msgid "Zoom _in"
-msgstr ""
+msgstr "Zoom _in"
 
-#: ../src/pdfviewer.c:125
+#: ../src/pdfviewer.c:122
 msgid "Zoom _out"
-msgstr ""
+msgstr "Zoom _out"
 
-#: ../src/pdfviewer.c:127
+#: ../src/pdfviewer.c:124
 msgid "Normal size"
-msgstr ""
+msgstr "Tamaño normal"
 
-#: ../src/pdfviewer.c:131 ../src/pdfviewer.c:134
+#: ../src/pdfviewer.c:128 ../src/pdfviewer.c:131
 msgid "_Fullscreen"
-msgstr ""
+msgstr "_Pantalla completa"
 
-#: ../src/pdfviewer.c:142
+#: ../src/pdfviewer.c:139
 msgid "_Contents"
-msgstr ""
+msgstr "_Contenidos"
 
-#: ../src/pdfviewer.c:144
+#: ../src/pdfviewer.c:141
 msgid "_About"
-msgstr ""
+msgstr "_Acerca de"
+
+#: ../src/pdfviewer.c:152
+msgid "_File"
+msgstr "_Archivo"
+
+#: ../src/pdfviewer.c:153
+msgid "_Edit"
+msgstr "_Editar"
+
+#: ../src/pdfviewer.c:154
+msgid "_View"
+msgstr "_Ver"
 
 #: ../src/pdfviewer.c:155
-msgid "_File"
-msgstr ""
-
-#: ../src/pdfviewer.c:156
-msgid "_Edit"
-msgstr ""
-
-#: ../src/pdfviewer.c:157
-msgid "_View"
-msgstr ""
-
-#: ../src/pdfviewer.c:158
 msgid "_Help"
-msgstr ""
+msgstr "_Ayuda"
 
-#: ../src/pdfviewer.c:165
+#: ../src/pdfviewer.c:162
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
-#: ../src/pdfviewer.c:167
+#: ../src/pdfviewer.c:164
 msgid "Far before"
 msgstr ""
 
-#: ../src/pdfviewer.c:169
+#: ../src/pdfviewer.c:166
 msgid "Previous"
-msgstr ""
+msgstr "Atrás"
 
-#: ../src/pdfviewer.c:171
+#: ../src/pdfviewer.c:168
 msgid "Next"
-msgstr ""
+msgstr "Siguiente"
 
-#: ../src/pdfviewer.c:172
+#: ../src/pdfviewer.c:169
 msgid "Far after"
 msgstr ""
 
-#: ../src/pdfviewer.c:175
+#: ../src/pdfviewer.c:172
 msgid "Zoom in"
-msgstr ""
+msgstr "Zoom in"
 
-#: ../src/pdfviewer.c:177
+#: ../src/pdfviewer.c:174
 msgid "Zoom out"
-msgstr ""
+msgstr "Zoom out"
 
-#: ../src/pdfviewer.c:324
+#: ../src/pdfviewer.c:323
 msgid "PDF viewer for the DeforaOS desktop"
 msgstr ""
 
-#: ../src/pdfviewer.c:352 ../src/pdfviewer.c:356
+#: ../src/pdfviewer.c:351 ../src/pdfviewer.c:355
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
-#: ../src/pdfviewer.c:429
-msgid "Properties of FIXME"
-msgstr ""
+#: ../src/pdfviewer.c:428
+msgid "Properties"
+msgstr "Propriedades"
 
-#: ../src/pdfviewer.c:450
+#: ../src/pdfviewer.c:449
 msgid "Author: "
 msgstr ""
 
-#: ../src/pdfviewer.c:455
+#: ../src/pdfviewer.c:454
 msgid "Subject: "
 msgstr ""
 
-#: ../src/pdfviewer.c:460
+#: ../src/pdfviewer.c:459
 msgid "Keywords: "
 msgstr ""
 
-#: ../src/pdfviewer.c:465
+#: ../src/pdfviewer.c:464
 msgid "Creator: "
 msgstr ""
 
-#: ../src/pdfviewer.c:470
+#: ../src/pdfviewer.c:469
 msgid "Producer: "
 msgstr ""
 
-#: ../src/pdfviewer.c:475
+#: ../src/pdfviewer.c:474
 msgid "Created on: "
 msgstr ""
 
-#: ../src/pdfviewer.c:479
+#: ../src/pdfviewer.c:478
 msgid "Modified on: "
 msgstr ""
 
-#: ../src/pdfviewer.c:582
+#: ../src/pdfviewer.c:589
 msgid "Open file..."
-msgstr ""
+msgstr "Abrir archivo..."
 
-#: ../src/pdfviewer.c:588
+#: ../src/pdfviewer.c:595
 msgid "PDF documents"
-msgstr ""
+msgstr "Documentos PDF"
 
-#: ../src/pdfviewer.c:592
+#: ../src/pdfviewer.c:599
 msgid "All files"
-msgstr ""
+msgstr "Todos los archivos"
 
-#: ../src/pdfviewer.c:671
+#: ../src/pdfviewer.c:678
 #, c-format
 msgid "Page %d/%d"
-msgstr ""
+msgstr "Página %d/%d"
 
-#: ../src/pdfviewer.c:814
+#: ../src/pdfviewer.c:824
 msgid "(Untitled)"
-msgstr ""
+msgstr "(Sin titulo)"
 
-#: ../src/pdfviewer.c:823
+#: ../src/pdfviewer.c:833
 msgid "PDF viewer - "
 msgstr ""
