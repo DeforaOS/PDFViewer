@@ -25,6 +25,7 @@ static char const _license[] =
 #include <libintl.h>
 #include <gdk/gdkkeysyms.h>
 #include <poppler.h>
+#include <System.h>
 #include <Desktop.h>
 #include "callbacks.h"
 #include "pdfviewer.h"
@@ -195,7 +196,7 @@ PDFviewer * pdfviewer_new(void)
 	GtkWidget * widget;
 	GtkToolItem * toolitem;
 
-	if((pdfviewer = malloc(sizeof(*pdfviewer))) == NULL)
+	if((pdfviewer = object_new(sizeof(*pdfviewer))) == NULL)
 		return NULL;
 	pdfviewer->pdf = NULL;
 	/* widgets */
@@ -276,7 +277,7 @@ void pdfviewer_delete(PDFviewer * pdfviewer)
 	pango_font_description_free(pdfviewer->bold);
 	if(pdfviewer->window != NULL)
 		gtk_widget_destroy(pdfviewer->window);
-	free(pdfviewer);
+	object_delete(pdfviewer);
 }
 
 
