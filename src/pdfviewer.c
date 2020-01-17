@@ -215,7 +215,7 @@ PDFviewer * pdfviewer_new(void)
 #endif
 	g_signal_connect_swapped(G_OBJECT(pdfviewer->window), "delete-event",
 			G_CALLBACK(on_closex), pdfviewer);
-	vbox = gtk_vbox_new(FALSE, 0);
+	vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	/* menubar */
 #ifndef EMBEDDED
 	pdfviewer->menubar = desktop_menubar_create(_pdfviewer_menubar,
@@ -243,8 +243,12 @@ PDFviewer * pdfviewer_new(void)
 			GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 	
 	pdfviewer->view = gtk_drawing_area_new();
+#if GTK_CHECK_VERSION(3, 8, 0)
+	gtk_container_add(GTK_CONTAINER(widget), pdfviewer->view);
+#else
 	gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(widget),
 			pdfviewer->view);
+#endif
 	gtk_box_pack_start(GTK_BOX(vbox), widget, TRUE, TRUE, 0);
 
 	/* statusbar */
@@ -489,15 +493,24 @@ static GtkWidget * _properties_label(PDFviewer * pdfviewer,
 	GtkWidget * hbox;
 	GtkWidget * widget;
 
-	hbox = gtk_hbox_new(FALSE, 4);
+	hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 4);
 	widget = gtk_label_new(label);
+#if GTK_CHECK_VERSION(3, 0, 0)
+	gtk_widget_override_font(widget, pdfviewer->bold);
+	g_object_set(widget, "halign", GTK_ALIGN_START, NULL);
+#else
 	gtk_widget_modify_font(widget, pdfviewer->bold);
 	gtk_misc_set_alignment(GTK_MISC(widget), 0.0, 0.5);
+#endif
 	gtk_size_group_add_widget(group, widget);
 	gtk_box_pack_start(GTK_BOX(hbox), widget, FALSE, TRUE, 0);
 	widget = gtk_label_new((value != NULL) ? value : "");
 	gtk_label_set_ellipsize(GTK_LABEL(widget), PANGO_ELLIPSIZE_END);
+#if GTK_CHECK_VERSION(3, 0, 0)
+	g_object_set(widget, "halign", GTK_ALIGN_START, NULL);
+#else
 	gtk_misc_set_alignment(GTK_MISC(widget), 0.0, 0.5);
+#endif
 	gtk_box_pack_start(GTK_BOX(hbox), widget, TRUE, TRUE, 0);
 	return hbox;
 }
