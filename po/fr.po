@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PDFViewer 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-17 06:57+0100\n"
+"POT-Creation-Date: 2020-01-17 07:16+0100\n"
 "PO-Revision-Date: 2013-10-31 00:44+0100\n"
 "Last-Translator: Pierre Pronchery <khorben@defora.org>\n"
 "Language-Team: French\n"
@@ -147,27 +147,27 @@ msgstr "Créé le : "
 msgid "Modified on: "
 msgstr "Modifié le : "
 
-#: ../src/pdfviewer.c:589
+#: ../src/pdfviewer.c:590
 msgid "Open file..."
 msgstr "Ouvrir le fichier..."
 
-#: ../src/pdfviewer.c:595
+#: ../src/pdfviewer.c:596
 msgid "PDF documents"
 msgstr "Documents PDF"
 
-#: ../src/pdfviewer.c:599
+#: ../src/pdfviewer.c:600
 msgid "All files"
 msgstr "Tous les fichiers"
 
-#: ../src/pdfviewer.c:678
+#: ../src/pdfviewer.c:679
 #, c-format
 msgid "Page %d/%d"
 msgstr "Page %d/%d"
 
-#: ../src/pdfviewer.c:824
+#: ../src/pdfviewer.c:825
 msgid "(Untitled)"
 msgstr "(Sans titre)"
 
-#: ../src/pdfviewer.c:833
+#: ../src/pdfviewer.c:834
 msgid "PDF viewer - "
 msgstr "Visionneuse PDF - "
