@@ -719,6 +719,7 @@ void pdf_render_area(GtkWidget *area, GdkEventExpose *event, void * data)
 	PDF * pdf = data;
 	GdkWindow * window;
         cairo_t *cr;
+	(void) event;
 
 #ifdef DEBUG
 	fprintf(stderr, "DEBUG: %s()\n", __func__);
