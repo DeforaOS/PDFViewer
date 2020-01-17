@@ -1,5 +1,5 @@
 # $Id$
-# Copyright (c) 2014 Pierre Pronchery <khorben@defora.org>
+# Copyright (c) 2014-2020 Pierre Pronchery <khorben@defora.org>
 # Spanish translations for PDFViewer package.
 # This file is distributed under the same license as the PDFViewer package.
 # Pierre Pronchery <khorben@defora.org>, 2014.
