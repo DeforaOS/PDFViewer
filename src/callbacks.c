@@ -39,6 +39,8 @@ gboolean on_closex(gpointer data)
 /* on_contents */
 void on_contents(gpointer data)
 {
+	(void) data;
+
 	desktop_help_contents(PACKAGE, PROGNAME_PDFVIEWER);
 }
 
